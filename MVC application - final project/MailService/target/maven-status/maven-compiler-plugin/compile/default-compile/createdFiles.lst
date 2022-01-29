@@ -1,0 +1,6 @@
+controller\Controller.class
+net\SessionHandler.class
+integration\MailDAO.class
+model\Account.class
+model\Mail.class
+net\WebSocketServer.class

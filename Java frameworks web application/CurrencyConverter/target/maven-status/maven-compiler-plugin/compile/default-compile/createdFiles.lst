@@ -1,0 +1,7 @@
+model\CurrencyRate.class
+controller\Controller.class
+integration\CConverterDAO.class
+model\Currency.class
+model\CurrencyRate_.class
+model\CurrencyDTO.class
+view\CCManager.class

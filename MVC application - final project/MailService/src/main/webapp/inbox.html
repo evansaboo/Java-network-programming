@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Inbox</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="net/websockets.js"></script> 
+        <script src="view/js/inbox.js"></script>
+
+        <link rel="stylesheet" href="view/css/inbox.css">
+        <script src="resources/js/bootstrap-notify.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="resources/css/animate.css">
+
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                    </button>
+                    <a class="navbar-brand" href="#">Mail Service</a>
+                </div>
+
+                <div id="navbar" class="collapse navbar-collapse" >
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="fa fa-user userbox"></span>
+                                <span id="username"></span> 
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a id="logout" href="index.html">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12 col-md-12">
+                    <button  type="button" id="compose" class="btn btn-danger" title="Compose" data-toggle="modal" data-target="#msgModal">
+                        <span class="glyphicon glyphicon-edit"></span> Compose</button>
+                    <button id="refreshBtn" type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh" >
+                           <span class="glyphicon glyphicon-refresh"></span>   </button>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+
+                <div class="col-sm-12 col-md-12">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#recvd_mail" data-toggle="tab">
+                                <span class="glyphicon glyphicon-inbox">
+                                </span>Primary</a>
+                        </li>
+                        <li>
+                            <a href="#sent_mail" data-toggle="tab">
+                                <span class="glyphicon glyphicon-send"></span>
+                                Sent
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div id="recvd_mail" class="tab-pane fade in active">
+                            <div class="list-group mail_groups">
+
+                            </div>
+                        </div>
+                        <div id="sent_mail" class="tab-pane fade in">
+                            <div class="list-group">
+                                <div  class="list-group-item mail_groups">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="msgModal" tabindex="-1" role="dialog" 
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" 
+                                data-dismiss="modal">
+                            <span id="closeModal" aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            New Message
+                        </h4>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <form role="form" id="msgForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control"
+                                       id="inputUsername" placeholder="Receiver" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control"
+                                       id="inputSubject" placeholder="Subject" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="10" class="form-control"
+                                          id="inputMsgBody" required="required"></textarea>
+
+                            </div>
+                            <button type="submit" class="btn btn-info">Send</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="showMsgModal" tabindex="-1" role="dialog" 
+             aria-labelledby="msgTitle" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" 
+                                data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <h3 class="modal-title" id="msgTitle"></h3>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <div >
+                            <span>By:</span>
+                            <span id="msgFrom"></span>
+                            <span class="text-muted"><small> on <span id="msgDate"></span></small></span>
+                            <div><small>To: <span id="msgTo">hello</span></small> </div>
+                        </div>
+                        <div > 
+                            <p id="msgBody"></p>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

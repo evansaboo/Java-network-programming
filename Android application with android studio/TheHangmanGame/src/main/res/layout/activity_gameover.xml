@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/playAgainButton"
+        android:layout_width="129dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/new_game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameOverMsg"
+        app:layout_constraintVertical_bias="0.013" />
+
+    <TextView
+        android:id="@+id/gameOverTitel"
+        android:layout_width="381dp"
+        android:layout_height="92dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="96dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameOverScore" />
+
+    <TextView
+        android:id="@+id/gameOverMsg"
+        android:layout_width="379dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameOverTitel" />
+
+    <TextView
+        android:id="@+id/gameOverScore"
+        android:layout_width="319dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goHomeButton"
+        android:layout_width="129dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:text="Go Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/playAgainButton"
+        app:layout_constraintTop_toBottomOf="@+id/gameOverMsg"
+        app:layout_constraintVertical_bias="0.016" />
+</android.support.constraint.ConstraintLayout>

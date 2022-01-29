@@ -1,0 +1,35 @@
+<resources>
+    <string name="main_text">The Hangman Game</string>
+    <string name="app_name">Hangman</string>
+    <string name="start_new_game">Start New Game</string>
+    <string name="button_U">U</string>
+    <string name="button_Y">Y</string>
+    <string name="button_R">R</string>
+    <string name="button_Z">Z</string>
+    <string name="button_X">X</string>
+    <string name="button_V">V</string>
+    <string name="button_B">B</string>
+    <string name="button_T">T</string>
+    <string name="button_C">C</string>
+    <string name="button_F">F</string>
+    <string name="button_I">I</string>
+    <string name="button_H">H</string>
+    <string name="button_J">J</string>
+    <string name="button_K">K</string>
+    <string name="button_N">N</string>
+    <string name="button_M">M</string>
+    <string name="button_L">L</string>
+    <string name="button_O">O</string>
+    <string name="button_G">G</string>
+    <string name="button_P">P</string>
+    <string name="button_A">A</string>
+    <string name="button_S">S</string>
+    <string name="button_D">D</string>
+    <string name="button_Q">Q</string>
+    <string name="button_W">W</string>
+    <string name="button_E">E</string>
+    <string name="new_game">Play Again</string>
+    <string name="type_guess">Guess the word here</string>
+    <string name="button_Quit">Quit</string>
+    <string name="button_GuessWord">GUESS WORD</string>
+</resources>

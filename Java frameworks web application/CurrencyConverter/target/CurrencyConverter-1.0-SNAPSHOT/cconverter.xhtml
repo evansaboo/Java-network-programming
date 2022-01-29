@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Currency Converter</title>
+    </head>
+    <body>
+        <h1>Currency Converter</h1>
+        <h:form>
+
+            <h:inputText id="currencyAmount" value="#{ccManager.currencyAmount}"/>
+            <h:selectOneMenu value ="#{ccManager.convertFrom}" >
+                <f:selectItem itemValue="SEK" itemLabel = "SEK - Swedish Krona"/>
+                <f:selectItem itemValue="USD" itemLabel = "USD - US Dollar"/>
+                <f:selectItem itemValue="EUR" itemLabel = "EUR - Euro"/>
+                <f:selectItem itemValue="GBP" itemLabel = "GBP - British Pound"/>
+                <f:selectItem itemValue="AUD" itemLabel = "AUD - Australian Dollar"/>
+            </h:selectOneMenu>
+            &rarr;
+            <h:selectOneMenu value ="#{ccManager.convertTo}" >
+                <f:selectItem itemValue="GBP" itemLabel = "GBP - British Pound"/>
+                <f:selectItem itemValue="SEK" itemLabel = "SEK - Swedish Krona"/>
+                <f:selectItem itemValue="USD" itemLabel = "USD - US Dollar"/>
+                <f:selectItem itemValue="EUR" itemLabel = "EUR - Euro"/>
+                <f:selectItem itemValue="AUD" itemLabel = "AUD - Australian Dollar"/>
+            </h:selectOneMenu>
+
+            <p>
+                <h:commandButton value="Convert" action="#{ccManager.convertCurrency}"/>
+            </p>
+        </h:form>
+        <p style="font-size: 40px;">
+            <h:outputText id="currCurrency" value="#{ccManager.currentCurrency.currencyFromAmount}" />
+            &lrm;
+            <h:outputLabel for="currCurrency" rendered="#{ccManager.currentCurrency != null}"  value="#{ccManager.currentCurrency.currencyFrom}"/>
+
+            <h:outputLabel for="currCurrency" rendered="#{ccManager.currentCurrency != null}"  value=" = "/>
+            <h:outputText id="convCurrency" value="#{ccManager.currentCurrency.currencyToAmount}"/>
+            &lrm;
+            <h:outputLabel for="convCurrency" rendered="#{ccManager.currentCurrency != null}"  value="#{ccManager.currentCurrency.currencyTo}"/>
+        </p>
+    </body>
+</html>

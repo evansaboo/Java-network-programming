@@ -1,0 +1,7 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Created and modified by Evan Saboo
+<#if licenseLast??>
+${licenseLast}
+</#if>

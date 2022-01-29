@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Error</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="view/css/error.css">
+    </head>
+    <body>
+        <script>
+            $(document).ready(function () {
+                var errorMsg = sessionStorage.getItem("error");
+                if (errorMsg !== null) {
+                    $('.error-details').text(errorMsg);
+                    sessionStorage.removeItem("error");
+                    localStorage.removeItem("userId");
+                }
+            });
+        </script>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="error-template">
+                        <h1>
+                            ERROR
+                        </h1>
+                        <div class="error-details">
+                            Sorry, an error has occured, Requested page not found!
+
+                        </div>
+                        <div class="error-actions">
+                            <a href="index.html" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> Go To Login Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
